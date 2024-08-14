@@ -7,10 +7,13 @@
 
 import UIKit
 
-class CircleRippleSingleViewController: UIViewController {
+class CircleRippleSingleViewController: CAViewController {
+    
+    let subview = CircleRippleSingleView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }

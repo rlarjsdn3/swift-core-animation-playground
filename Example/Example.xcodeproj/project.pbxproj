@@ -76,6 +76,7 @@
 		9E53D9582C6C6D750006CBCA /* BallVerticalBounceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E53D9572C6C6D750006CBCA /* BallVerticalBounceViewController.swift */; };
 		9E53D95A2C6C6D7C0006CBCA /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E53D9592C6C6D7C0006CBCA /* ActivityIndicatorView.swift */; };
 		9E53D95C2C6C6D820006CBCA /* ActivityIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E53D95B2C6C6D820006CBCA /* ActivityIndicatorViewController.swift */; };
+		9E53D95E2C6C76800006CBCA /* CAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E53D95D2C6C76800006CBCA /* CAViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +151,7 @@
 		9E53D9572C6C6D750006CBCA /* BallVerticalBounceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallVerticalBounceViewController.swift; sourceTree = "<group>"; };
 		9E53D9592C6C6D7C0006CBCA /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		9E53D95B2C6C6D820006CBCA /* ActivityIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorViewController.swift; sourceTree = "<group>"; };
+		9E53D95D2C6C76800006CBCA /* CAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				9E53D8B52C6C65270006CBCA /* AppDelegate.swift */,
 				9E53D8B72C6C65270006CBCA /* SceneDelegate.swift */,
 				9E53D8B92C6C65270006CBCA /* MainViewController.swift */,
+				9E53D95D2C6C76800006CBCA /* CAViewController.swift */,
 				9E53D8BB2C6C65270006CBCA /* Main.storyboard */,
 				9E53D8BE2C6C65280006CBCA /* Assets.xcassets */,
 				9E53D8C02C6C65280006CBCA /* LaunchScreen.storyboard */,
@@ -528,6 +531,7 @@
 				9E53D94E2C6C6D440006CBCA /* CircleArcDotSpinView.swift in Sources */,
 				9E53D93C2C6C6C570006CBCA /* CircleRippleMultipleViewController.swift in Sources */,
 				9E53D92C2C6C6C100006CBCA /* HorizontalBarScalingViewController.swift in Sources */,
+				9E53D95E2C6C76800006CBCA /* CAViewController.swift in Sources */,
 				9E53D9342C6C6C310006CBCA /* CircleStrokeSpinViewController.swift in Sources */,
 				9E53D94C2C6C6D3B0006CBCA /* CircleBarSpinFadeViewController.swift in Sources */,
 				9E53D9442C6C6C770006CBCA /* CirclePulseMultipleViewController.swift in Sources */,
