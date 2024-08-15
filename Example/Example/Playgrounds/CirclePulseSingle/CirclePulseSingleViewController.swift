@@ -7,10 +7,13 @@
 
 import UIKit
 
-class CirclePulseSingleViewController: UIViewController {
+class CirclePulseSingleViewController: CAViewController {
+    
+    let subview = CirclePulseSingleView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }

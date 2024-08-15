@@ -5,4 +5,53 @@
 //  Created by 김건우 on 8/14/24.
 //
 
-import Foundation
+import UIKit
+
+class CirclePulseSingleView: UIView {
+    
+    override func draw(_ rect: CGRect) {
+        
+        let width = self.frame.size.width
+        let height = self.frame.size.height
+        let center = CGPoint(x: width / 2, y: height / 2)
+        let radius = width / 2
+        
+        let duration = 1.0
+        
+        let animationScale = CABasicAnimation(keyPath: "transform.scale")
+        animationScale.duration = duration
+        animationScale.fromValue = 0
+        animationScale.toValue = 1
+        
+        let animationOpacity = CABasicAnimation(keyPath: "opacity")
+        animationOpacity.duration = duration
+        animationOpacity.fromValue = 1
+        animationOpacity.toValue = 0
+        
+        let animation = CAAnimationGroup()
+        animation.animations = [animationScale, animationOpacity]
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        animation.duration = duration
+        animation.repeatCount = .infinity
+        animation.fillMode = .backwards
+        animation.isRemovedOnCompletion = false
+        
+        let path = UIBezierPath(
+            arcCenter: center,
+            radius: radius,
+            startAngle: 0,
+            endAngle: 2 * .pi,
+            clockwise: false
+        )
+        
+        let layer = CAShapeLayer()
+        layer.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        layer.path = path.cgPath
+        layer.fillColor = UIColor.systemBlue.cgColor
+        
+        layer.add(animation, forKey: "animation")
+        self.layer.addSublayer(layer)
+        
+    }
+    
+}
