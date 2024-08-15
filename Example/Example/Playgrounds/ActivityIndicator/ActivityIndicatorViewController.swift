@@ -7,10 +7,13 @@
 
 import UIKit
 
-class ActivityIndicatorViewController: UIViewController {
+class ActivityIndicatorViewController: CAViewController {
+    
+    let subview = ActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
