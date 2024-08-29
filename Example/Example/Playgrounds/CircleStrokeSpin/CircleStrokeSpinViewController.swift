@@ -7,10 +7,13 @@
 
 import UIKit
 
-class CircleStrokeSpinViewController: UIViewController {
+class CircleStrokeSpinViewController: CAViewController {
+    
+    let subview = CircleStrokeSpinView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
