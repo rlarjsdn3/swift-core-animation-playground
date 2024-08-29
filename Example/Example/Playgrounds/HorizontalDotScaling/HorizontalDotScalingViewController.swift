@@ -7,10 +7,13 @@
 
 import UIKit
 
-class HorizontalDotScalingViewController: UIViewController {
+class HorizontalDotScalingViewController: CAViewController {
+    
+    let subview = HorizontalDotScalingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
