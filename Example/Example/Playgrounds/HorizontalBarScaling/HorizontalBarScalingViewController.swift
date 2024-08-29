@@ -7,10 +7,13 @@
 
 import UIKit
 
-class HorizontalBarScalingViewController: UIViewController {
+class HorizontalBarScalingViewController: CAViewController {
+    
+    let subview = HorizontalBarScalingView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
