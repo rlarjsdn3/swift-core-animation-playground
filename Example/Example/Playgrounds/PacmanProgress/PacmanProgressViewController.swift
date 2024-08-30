@@ -7,10 +7,13 @@
 
 import UIKit
 
-class PacmanProgressViewController: UIViewController {
+class PacmanProgressViewController: CAViewController {
+    
+    let subview = PacmanProgressView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
