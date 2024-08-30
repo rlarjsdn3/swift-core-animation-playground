@@ -7,10 +7,13 @@
 
 import UIKit
 
-class SFSymbolBounceViewController: UIViewController {
+class SFSymbolBounceViewController: CAViewController {
+    
+    let subview = SFSymbolBounceView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
