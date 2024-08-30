@@ -7,10 +7,13 @@
 
 import UIKit
 
-class CircleRotateChaseViewController: UIViewController {
+class CircleRotateChaseViewController: CAViewController {
+    
+    let subview = CircleRotateChaseView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
