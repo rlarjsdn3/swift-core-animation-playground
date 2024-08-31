@@ -7,10 +7,13 @@
 
 import UIKit
 
-class TriangleDotShiftViewController: UIViewController {
+class TriangleDotShiftViewController: CAViewController {
+    
+    let subview = TriangleDotShiftView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
