@@ -7,10 +7,13 @@
 
 import UIKit
 
-class QuintupleDotDanceViewController: UIViewController {
+class QuintupleDotDanceViewController: CAViewController {
+    
+    let subview = QuintupleDotDanceView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
