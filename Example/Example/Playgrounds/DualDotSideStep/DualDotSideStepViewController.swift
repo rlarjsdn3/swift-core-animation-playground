@@ -7,10 +7,13 @@
 
 import UIKit
 
-class DualDotSideStepViewController: UIViewController {
+class DualDotSideStepViewController: CAViewController {
+    
+    let subview = DualDotSideStepView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
