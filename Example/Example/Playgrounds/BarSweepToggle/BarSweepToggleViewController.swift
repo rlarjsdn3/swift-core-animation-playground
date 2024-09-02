@@ -7,10 +7,13 @@
 
 import UIKit
 
-class BarSweepToggleViewController: UIViewController {
+class BarSweepToggleViewController: CAViewController {
+    
+    let subview = BarSweepToggleView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
