@@ -7,10 +7,13 @@
 
 import UIKit
 
-class CircleArcDotSpinViewController: UIViewController {
+class CircleArcDotSpinViewController: CAViewController {
+    
+    let subview = CircleArcDotSpinView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
