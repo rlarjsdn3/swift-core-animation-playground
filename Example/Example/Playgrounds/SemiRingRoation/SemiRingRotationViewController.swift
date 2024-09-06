@@ -7,10 +7,13 @@
 
 import UIKit
 
-class SemiRingRotationViewController: UIViewController {
+class SemiRingRotationViewController: CAViewController {
+    
+    let subview = SemiRingRotationView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
