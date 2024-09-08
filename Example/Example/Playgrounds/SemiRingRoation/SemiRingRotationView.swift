@@ -78,7 +78,6 @@ class SemiRingRotationView: UIView {
             
             let path = UIBezierPath()
             
-            // ⭐️ Cos, Sin 함수 추가 공부하기
             switch self {
             case .twoHalfRingsVertical:
                 path.addArc(withCenter: center, radius: radius, startAngle: -3 * pi4, endAngle: -pi4, clockwise: true)
