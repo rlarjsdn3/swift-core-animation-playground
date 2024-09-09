@@ -7,10 +7,13 @@
 
 import UIKit
 
-class BallVerticalBounceViewController: UIViewController {
+class BallVerticalBounceViewController: CAViewController {
+    
+    let subview = BallVerticalBounceView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
