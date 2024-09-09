@@ -7,10 +7,13 @@
 
 import UIKit
 
-class CircleDotSpinFadeViewController: UIViewController {
+class CircleDotSpinFadeViewController: CAViewController {
+    
+    let subview = CircleDotSpinFadeView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
