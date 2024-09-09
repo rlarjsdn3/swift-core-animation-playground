@@ -7,10 +7,13 @@
 
 import UIKit
 
-class SquareCircuitSnakeViewController: UIViewController {
+class SquareCircuitSnakeViewController: CAViewController {
+    
+    let subview = SquareCircuitSnakeView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView(for: subview)
     }
     
 }
