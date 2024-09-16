@@ -28,28 +28,22 @@ class CirclePulseSingleView: UIView {
         animationOpacity.fromValue = 1
         animationOpacity.toValue = 0
         
-        let animation = CAAnimationGroup()
-        animation.animations = [animationScale, animationOpacity]
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        animation.duration = duration
-        animation.repeatCount = .infinity
-        animation.fillMode = .backwards
-        animation.isRemovedOnCompletion = false
+        let animationGroup = CAAnimationGroup()
+        animationGroup.animations = [animationScale, animationOpacity]
+        animationGroup.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        animationGroup.duration = duration
+        animationGroup.repeatCount = .infinity
+        animationGroup.fillMode = .forwards
+        animationGroup.isRemovedOnCompletion = false
         
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: radius,
-            startAngle: 0,
-            endAngle: 2 * .pi,
-            clockwise: false
-        )
+        let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
         
         let layer = CAShapeLayer()
         layer.frame = CGRect(x: 0, y: 0, width: width, height: height)
         layer.path = path.cgPath
-        layer.fillColor = UIColor.systemBlue.cgColor
+        layer.fillColor = UIColor.systemOrange.cgColor
         
-        layer.add(animation, forKey: "animation")
+        layer.add(animationGroup, forKey: "animationGroup")
         self.layer.addSublayer(layer)
         
     }

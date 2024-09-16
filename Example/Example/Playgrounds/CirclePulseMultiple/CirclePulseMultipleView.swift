@@ -18,7 +18,7 @@ class CirclePulseMultipleView: UIView {
         
         let duration = 1.0
         let beginTime = CACurrentMediaTime()
-        let beginTimes = [0, 0.3, 0.6]
+        let beginTimes = [0, 0.33, 0.66]
         
         let animationScale = CABasicAnimation(keyPath: "transform.scale")
         animationScale.duration = duration
@@ -27,35 +27,28 @@ class CirclePulseMultipleView: UIView {
         
         let animationOpacity = CAKeyframeAnimation(keyPath: "opacity")
         animationOpacity.duration = duration
-        animationOpacity.keyTimes = [0, 0.1, 1]
+        animationOpacity.keyTimes = [0, 0.05, 1]
         animationOpacity.values = [0, 1, 0]
         
-        let animation = CAAnimationGroup()
-        animation.animations = [animationScale, animationOpacity]
-        animation.timingFunction = CAMediaTimingFunction(name: .linear)
-        animation.duration = duration
-        animation.repeatCount = .infinity
-        animation.fillMode = .backwards
-        animation.isRemovedOnCompletion = false
+        let animationGroup = CAAnimationGroup()
+        animationGroup.animations = [animationScale, animationOpacity]
+        animationGroup.timingFunction = CAMediaTimingFunction(name: .linear)
+        animationGroup.duration = duration
+        animationGroup.repeatCount = .infinity
+        animationGroup.fillMode = .backwards
+        animationGroup.isRemovedOnCompletion = false
         
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: radius,
-            startAngle: 0,
-            endAngle: 2 * .pi,
-            clockwise: false
-        )
+        let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
         
         for i in 0..<3 {
             let layer = CAShapeLayer()
             layer.frame = CGRect(x: 0, y: 0, width: width, height: height)
             layer.path = path.cgPath
-            layer.fillColor = UIColor.systemBlue.cgColor
-            layer.opacity = 0
+            layer.fillColor = UIColor.systemOrange.cgColor
             
-            animation.beginTime = beginTime + beginTimes[i]
+            animationGroup.beginTime = beginTime + beginTimes[i]
             
-            layer.add(animation, forKey: "animation")
+            layer.add(animationGroup, forKey: "animationGroup")
             self.layer.addSublayer(layer)
         }
         
