@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - Views
+
 class SFSymbolBounceView: UIView {
     
     override func draw(_ rect: CGRect) {
@@ -17,9 +19,9 @@ class SFSymbolBounceView: UIView {
         let image = UIImage(systemName: "sun.max")
         let config = UIImage.SymbolConfiguration(weight: .bold)
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        let imageView = UIImageView(frame: self.bounds)
         imageView.image = image?.applyingSymbolConfiguration(config)
-        imageView.tintColor = UIColor.systemBlue
+        imageView.tintColor = UIColor.systemOrange
         imageView.contentMode = .scaleAspectFit
         
         if #available(iOS 17.0, *) {
@@ -30,4 +32,11 @@ class SFSymbolBounceView: UIView {
         
     }
     
+}
+
+
+// MARK: - Preview
+
+#Preview {
+    SFSymbolBounceView()
 }

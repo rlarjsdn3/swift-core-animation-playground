@@ -211,6 +211,7 @@
 				9E53D8DC2C6C69DE0006CBCA /* DualDotSideStep */,
 				9E53D8DB2C6C69D90006CBCA /* CircleStrokeSpin */,
 				9E53D8DA2C6C69D30006CBCA /* CircleRotateChase */,
+				9E53D8CA2C6C65CD0006CBCA /* CircleRippleSingle */,
 				9E53D8D92C6C69CC0006CBCA /* CircleRippleMultiple */,
 				9E53D8D82C6C69C70006CBCA /* CirclePulseSingle */,
 				9E53D8D72C6C69BF0006CBCA /* CirclePulseMultiple */,
@@ -220,7 +221,6 @@
 				9E53D8D32C6C69910006CBCA /* BarSweepToggle */,
 				9E53D8D22C6C698A0006CBCA /* BallVerticalBounce */,
 				9E53D8D12C6C69830006CBCA /* ActivityIndicator */,
-				9E53D8CA2C6C65CD0006CBCA /* CircleRippleSingle */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";

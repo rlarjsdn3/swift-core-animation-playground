@@ -7,23 +7,28 @@
 
 import UIKit
 
+// MARK: - View
+
 class ActivityIndicatorView: UIView {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+
+    override func draw(_ rect: CGRect) {
         
         let spinner = UIActivityIndicatorView(style: .large)
         let scale = self.frame.size.width / spinner.frame.size.width
         spinner.transform = CGAffineTransform(scaleX: scale, y: scale)
         spinner.frame = self.bounds
-        spinner.color = UIColor.systemBlue
+        spinner.color = UIColor.systemOrange
         spinner.hidesWhenStopped = true
         spinner.startAnimating()
         self.addSubview(spinner)
+        
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+}
+
+
+// MARK: - Preview
+
+#Preview {
+    ActivityIndicatorView()
 }

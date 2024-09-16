@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - View
+
 class CircleRippleMultipleView: UIView {
     
     override func draw(_ rect: CGRect) {
@@ -23,30 +25,24 @@ class CircleRippleMultipleView: UIView {
         
         let animationScale = CAKeyframeAnimation(keyPath: "transform.scale")
         animationScale.keyTimes = [0, 0.7]
-        animationScale.timingFunction = timingFunction
         animationScale.values = [0, 1]
+        animationScale.timingFunction = timingFunction
         animationScale.duration = duration
         
         let animationOpacity = CAKeyframeAnimation(keyPath: "opacity")
-        animationOpacity.keyTimes = [0, 0.7, 1]
-        animationOpacity.timingFunctions = [timingFunction, timingFunction]
+        animationOpacity.keyTimes = [0, 0.5, 1]
         animationOpacity.values = [1, 0.7, 0]
+        animationOpacity.timingFunctions = [timingFunction, timingFunction]
         animationOpacity.duration = duration
         
-        let animation = CAAnimationGroup()
-        animation.animations = [animationScale, animationOpacity]
-        animation.duration = duration
-        animation.repeatCount = .infinity
-        animation.fillMode = .backwards
-        animation.isRemovedOnCompletion = false
+        let animationGroup = CAAnimationGroup()
+        animationGroup.animations = [animationScale, animationOpacity]
+        animationGroup.duration = duration
+        animationGroup.repeatCount = .infinity
+        animationGroup.fillMode = .backwards
+        animationGroup.isRemovedOnCompletion = false
         
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: radius,
-            startAngle: 0,
-            endAngle: 2 * .pi,
-            clockwise: false
-        )
+        let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
         
         for i in 0..<3 {
             let layer = CAShapeLayer()
@@ -54,15 +50,22 @@ class CircleRippleMultipleView: UIView {
             layer.path = path.cgPath
             layer.backgroundColor = nil
             layer.fillColor = nil
-            layer.strokeColor = UIColor.systemBlue.cgColor
-            layer.lineWidth = 3
+            layer.strokeColor = UIColor.systemOrange.cgColor
+            layer.lineWidth = 5
             
-            animation.beginTime = beginTime + beginTimes[i]
+            animationGroup.beginTime = beginTime + beginTimes[i]
             
-            layer.add(animation, forKey: "animation")
+            layer.add(animationGroup, forKey: "animationGroup")
             self.layer.addSublayer(layer)
         }
         
     }
     
+}
+
+
+// MARK: - Preview
+
+#Preview {
+    CircleRippleMultipleView()
 }
