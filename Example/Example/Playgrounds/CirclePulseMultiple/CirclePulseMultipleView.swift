@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - View
+
 class CirclePulseMultipleView: UIView {
     
     override func draw(_ rect: CGRect) {
@@ -54,4 +56,11 @@ class CirclePulseMultipleView: UIView {
         
     }
     
+}
+
+
+// MARK: - Preview
+
+#Preview {
+    CirclePulseMultipleView()
 }

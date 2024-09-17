@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - View
+
 class CircleStrokeSpinView: UIView {
     
     override func draw(_ rect: CGRect) {
@@ -15,54 +17,56 @@ class CircleStrokeSpinView: UIView {
         let height = self.frame.size.height
         let center = CGPoint(x: width / 2, y: height / 2)
         
-        let beginTime = 0.5
         let durationStart = 1.2
-        let durationEnd = 0.7
+        let durationEnd = 0.8
+        
+        let beginTime = 0.4
         
         let timingFunction = CAMediaTimingFunction(controlPoints: 0.4, 0, 0.2, 1)
         
         let animationRotation = CABasicAnimation(keyPath: "transform.rotation")
-        animationRotation.byValue = 2 * Float.pi
-        animationRotation.timingFunction = CAMediaTimingFunction(name: .linear)
+        animationRotation.duration = durationStart + beginTime
+        animationRotation.byValue = 2 * CGFloat.pi
+        animationRotation.timingFunction = timingFunction
         
-        let animationStart = CABasicAnimation(keyPath: "strokeStart")
-        animationStart.duration = durationStart
-        animationStart.timingFunction = timingFunction
-        animationStart.fromValue = 0
-        animationStart.toValue = 1
-        animationStart.beginTime = beginTime
+        let animationStrokeEnd = CABasicAnimation(keyPath: "strokeEnd")
+        animationStrokeEnd.duration = durationEnd
+        animationStrokeEnd.timingFunction = timingFunction
+        animationStrokeEnd.fromValue = 0
+        animationStrokeEnd.toValue = 1
         
-        let animationEnd = CABasicAnimation(keyPath: "strokeEnd")
-        animationEnd.duration = durationEnd
-        animationEnd.timingFunction = timingFunction
-        animationEnd.fromValue = 0
-        animationEnd.toValue = 1
+        let animationStrokeStart = CABasicAnimation(keyPath: "strokeStart")
+        animationStrokeStart.duration = durationStart
+        animationStrokeStart.timingFunction = timingFunction
+        animationStrokeStart.fromValue = 0
+        animationStrokeStart.toValue = 1
+        animationStrokeStart.beginTime = beginTime
         
-        let animation = CAAnimationGroup()
-        animation.animations = [animationRotation, animationEnd, animationStart]
-        animation.duration = durationStart + beginTime
-        animation.repeatCount = .infinity
-        animation.fillMode = .backwards
-        animation.isRemovedOnCompletion = false
+        let animationGroup = CAAnimationGroup()
+        animationGroup.animations = [animationRotation, animationStrokeStart, animationStrokeEnd]
+        animationGroup.duration = durationStart + beginTime
+        animationGroup.repeatCount = .infinity
+        animationGroup.isRemovedOnCompletion = false
         
-        let path = UIBezierPath(
-            arcCenter: center,
-            radius: width / 2,
-            startAngle: -0.5 * .pi,
-            endAngle: 1.5 * .pi,
-            clockwise: true
-        )
+        let path = UIBezierPath(arcCenter: center, radius: width / 2, startAngle: -0.5 * .pi, endAngle: 1.5 * .pi, clockwise: true)
         
         let layer = CAShapeLayer()
         layer.frame = CGRect(x: 0, y: 0, width: width, height: height)
         layer.path = path.cgPath
         layer.fillColor = nil
-        layer.strokeColor = UIColor.systemBlue.cgColor
-        layer.lineCap = .round
-        layer.lineWidth = 6
+        layer.strokeColor = UIColor.systemOrange.cgColor
+        layer.lineWidth = 5
         
-        layer.add(animation, forKey: "animation")
+        layer.add(animationGroup, forKey: "animationGroup")
         self.layer.addSublayer(layer)
+        
     }
     
+}
+
+
+// MARK: - Preview
+
+#Preview {
+    CircleStrokeSpinView()
 }
